@@ -1,0 +1,15 @@
+.avatar {
+    background-image:url('./assets/img/avatars/avatar.jpg');
+}
+
+.h3-name {
+    margin-bottom: 15px !important;
+}
+
+.tags {
+    float: left !important;
+}
+
+h4 {
+    display: block !important;
+}

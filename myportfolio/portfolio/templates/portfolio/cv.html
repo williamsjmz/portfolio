@@ -1,0 +1,138 @@
+{% extends "portfolio/layout.html" %}
+
+{% block body %}
+{% load static %}
+
+<main class="page cv-page">
+    <section class="portfolio-block block-intro border-bottom">
+        <div class="container">
+            <div id="profile-container">
+
+                {% if profile %}
+
+                    <div class="container">
+                        <img id="profile-picture" src="{% static 'images/profile-pictures/default-pp.jpg' %}" class="rounded-circle" style="width: 150px; margin: 15px;" alt="Avatar" />
+                        <div class="about-me">
+                            <p>{{ profile.biography }}</p>
+                            <a class="btn btn-outline-primary" role="button" href="{% url 'portfolio:hire_me' %}">Hire me</a>
+                        </div>
+                    </div>   
+
+                {% else %}
+
+                    <div class="alert alert-warning">There is not profile info to show.</div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+    <section class="portfolio-block cv">
+        <div class="container">
+            <div class="work-experience group">
+                <div class="heading experience-heading">
+                    <h2 class="text-center">Work Experience</h2>
+                </div>
+                <div id="works-container">
+
+                    <!-- HTML Elements inserted with JS -->
+
+                </div>
+            </div>
+            <div class="education group">
+                <div class="heading experience-heading">
+                    <h2 class="text-center">Education</h2>
+                </div>
+                <div id="educations-container" style="text-align:center;">
+
+                    <h2 class="text-center" style="display:none;" id="alert-experiences-heading">Experience</h2>
+                    <!-- HTML Elements inserted with JS -->
+
+                </div>
+            </div>
+            <div class="group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="technologies-container" style="text-align:center;" class="skills portfolio-info-card">
+                            <h2>Technologies</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-info portfolio-info-card">
+
+                            <h2>Contact Info</h2>
+
+                            {% if profile %}
+
+                            <div class="row">
+                                <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
+                                <div class="col-9"><span>{{ profile.birthday }}</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1"><i class="icon ion-person icon"></i></div>
+                                <div class="col-9"><span>{{ profile.first_name }} {{ profile.last_name }}</span></div>
+                            </div>
+
+                            
+                            <div class="row">
+                                <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
+                                <div class="col-9"><span>{{ profile.phone_number }}</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1"><i class="icon ion-at icon"></i></div>
+                                <div class="col-9"><span>{{ profile.email }}</span></div>
+                            </div>
+            
+                            {% else %}
+            
+                                <div class="alert alert-warning">There is not contact info to show.</div>
+            
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hobbies group">
+
+                {% if profile %}
+
+                <div class="heading">
+                    <h2 class="text-center">Hobbies</h2>
+                </div>
+                <p class="text-center text-muted">{{ profile.hobbies_description }}</p>
+
+                <!--
+
+                <div class="heading">
+                    <h2 class="text-center">Hobbies</h2>
+                </div>
+                <p class="text-center text-muted">
+
+                    Due to my passion for software engineering, I enjoy developing my knowledge by creating side projects that I can use to further my career in the industry. I also enjoy playing chess, puzzle games, and video games, especially competitive video games.
+
+                </p>
+
+                -->
+
+                {% else %}
+
+                    <div class="alert alert-warning">There is not profile info to show.</div>
+
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="d-md-flex justify-content-md-center" style="margin-top: 50px;"><a class="btn btn-outline-primary" role="button" href="#">Descargar CV</a></div>
+    </section>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+
+<script src="{% static 'portfolio/cv.js' %}"></script>
+
+{% endblock %}

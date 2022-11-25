@@ -1,0 +1,27 @@
+{% extends "portfolio/layout.html" %}
+
+{% block body %}
+
+<main class="page projets-page">
+    <section class="portfolio-block project-no-images">
+        <div class="container">
+            <div class="heading">
+                <h2>Recent Work</h2>
+            </div>
+            <div id="projects-container" class="row" style="text-align:center;">
+
+                <!-- HTML Elements inserted with JS -->
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+
+<script src="{% static 'portfolio/projects.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "portfolio/layout.html" %}
+
+{% block body %}
+{% load static %}
+    <main class="page lanidng-page">
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                <div id="profile-container">
+
+                    {% if profile %}
+
+                        <div class="container">
+                            <img id="profile-picture" src="{% static 'images/profile-pictures/default-pp.jpg' %}" class="rounded-circle" style="width: 150px; margin: 15px;" alt="Avatar" />
+                            <div class="about-me">
+                                <p>{{ profile.biography }}</p>
+                                <a class="btn btn-outline-primary" role="button" href="{% url 'portfolio:hire_me' %}">Hire me</a>
+                            </div>
+                        </div>   
+
+                    {% else %}
+
+                    <div class="alert alert-warning">There is not profile info to show.</div>
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block skills">
+            <div class="container">
+                <div class="heading">
+                    <h2>Soft Skills</h2>
+                </div>
+                <div id="soft-skills-container" class="row" style="text-align: center;">
+
+                    <!-- HTML Elements inserted with JS -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+
+<script src="{% static 'portfolio/index.js' %}"></script>
+
+{% endblock %}
